@@ -11,8 +11,7 @@
 
 namespace Eliasis\Modules\Request\Controller\Request;
 
-use Eliasis\Module\Module,
-    Eliasis\Controller\Controller;
+use Eliasis\Controller\Controller;
     
 /**
  * Module main controller.
