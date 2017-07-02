@@ -11,8 +11,7 @@
 
 namespace Eliasis\Modules\Request\Controller\Request;
 
-use Josantonius\Asset\Asset,
-    Eliasis\Module\Module,
+use Eliasis\Module\Module,
     Eliasis\Controller\Controller;
     
 /**
