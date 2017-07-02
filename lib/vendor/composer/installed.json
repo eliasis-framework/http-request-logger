@@ -116,6 +116,113 @@
         ]
     },
     {
+        "name": "josantonius/ip",
+        "version": "1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Josantonius/PHP-Ip.git",
+            "reference": "20d2e91f99100edbd419fad5dff79d67d1f9dcfd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Josantonius/PHP-Ip/zipball/20d2e91f99100edbd419fad5dff79d67d1f9dcfd",
+            "reference": "20d2e91f99100edbd419fad5dff79d67d1f9dcfd",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6 || ^7.0"
+        },
+        "time": "2017-03-18 17:14:36",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Josantonius\\Ip\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Josantonius",
+                "email": "hello@josantonius.com",
+                "homepage": "https://josantonius.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP class to get user IP.",
+        "keywords": [
+            "Get user IP",
+            "IP",
+            "REMOTE_ADDR",
+            "hhvm",
+            "php"
+        ]
+    },
+    {
+        "name": "josantonius/database",
+        "version": "1.1.4",
+        "version_normalized": "1.1.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Josantonius/PHP-Database.git",
+            "reference": "b8c04a0b4455c7db5c88f135ebeed56dc7943649"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Josantonius/PHP-Database/zipball/b8c04a0b4455c7db5c88f135ebeed56dc7943649",
+            "reference": "b8c04a0b4455c7db5c88f135ebeed56dc7943649",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6 || ^7.0"
+        },
+        "time": "2017-05-16 03:15:52",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Josantonius\\Database\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Josantonius",
+                "email": "hello@josantonius.com",
+                "homepage": "https://josantonius.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Library for SQL database management to be used by several providers at the same time.",
+        "keywords": [
+            "database",
+            "hhvm",
+            "mariadb",
+            "mysql",
+            "orm",
+            "php",
+            "query",
+            "sql"
+        ]
+    },
+    {
         "name": "josantonius/url",
         "version": "1.1.2",
         "version_normalized": "1.1.2.0",
@@ -227,19 +334,19 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Eliasis-Framework/Eliasis.git",
-            "reference": "c955eda920a03fb17af7abb9f119b5ace93ae675"
+            "reference": "63d7a61a2be4859914a5d9673529b97481a715f3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Eliasis-Framework/Eliasis/zipball/c955eda920a03fb17af7abb9f119b5ace93ae675",
-            "reference": "c955eda920a03fb17af7abb9f119b5ace93ae675",
+            "url": "https://api.github.com/repos/Eliasis-Framework/Eliasis/zipball/63d7a61a2be4859914a5d9673529b97481a715f3",
+            "reference": "63d7a61a2be4859914a5d9673529b97481a715f3",
             "shasum": ""
         },
         "require": {
             "josantonius/url": "^1.1.2",
             "php": "^5.6 || ^7.0"
         },
-        "time": "2017-06-26 02:38:04",
+        "time": "2017-07-02 17:46:03",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -334,12 +441,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/Eliasis-Framework/Module.git",
-            "reference": "b6cb835d0bf097c90aa78a7b14d7e01451f52343"
+            "reference": "68dd01b2bbeb0e60f87c140f59f9761b3ca027ee"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Eliasis-Framework/Module/zipball/b6cb835d0bf097c90aa78a7b14d7e01451f52343",
-            "reference": "b6cb835d0bf097c90aa78a7b14d7e01451f52343",
+            "url": "https://api.github.com/repos/Eliasis-Framework/Module/zipball/68dd01b2bbeb0e60f87c140f59f9761b3ca027ee",
+            "reference": "68dd01b2bbeb0e60f87c140f59f9761b3ca027ee",
             "shasum": ""
         },
         "require": {
@@ -348,7 +455,7 @@
             "josantonius/json": "^1.1.2",
             "php": "^5.6 || ^7.0"
         },
-        "time": "2017-06-26 02:39:22",
+        "time": "2017-07-02 00:08:11",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -381,113 +488,6 @@
             "hmvc",
             "module",
             "php"
-        ]
-    },
-    {
-        "name": "josantonius/ip",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Josantonius/PHP-Ip.git",
-            "reference": "20d2e91f99100edbd419fad5dff79d67d1f9dcfd"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Josantonius/PHP-Ip/zipball/20d2e91f99100edbd419fad5dff79d67d1f9dcfd",
-            "reference": "20d2e91f99100edbd419fad5dff79d67d1f9dcfd",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0"
-        },
-        "time": "2017-03-18 17:14:36",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Josantonius\\Ip\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Josantonius",
-                "email": "hello@josantonius.com",
-                "homepage": "https://josantonius.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "PHP class to get user IP.",
-        "keywords": [
-            "Get user IP",
-            "IP",
-            "REMOTE_ADDR",
-            "hhvm",
-            "php"
-        ]
-    },
-    {
-        "name": "josantonius/database",
-        "version": "1.1.4",
-        "version_normalized": "1.1.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Josantonius/PHP-Database.git",
-            "reference": "b8c04a0b4455c7db5c88f135ebeed56dc7943649"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Josantonius/PHP-Database/zipball/b8c04a0b4455c7db5c88f135ebeed56dc7943649",
-            "reference": "b8c04a0b4455c7db5c88f135ebeed56dc7943649",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0"
-        },
-        "time": "2017-05-16 03:15:52",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Josantonius\\Database\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Josantonius",
-                "email": "hello@josantonius.com",
-                "homepage": "https://josantonius.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "Library for SQL database management to be used by several providers at the same time.",
-        "keywords": [
-            "database",
-            "hhvm",
-            "mariadb",
-            "mysql",
-            "orm",
-            "php",
-            "query",
-            "sql"
         ]
     }
 ]

@@ -9,7 +9,7 @@
  * @since      1.0.0
  */
 
-namespace App\Modules\Request\Model\Request;
+namespace Eliasis\Modules\Request\Model\Request;
 
 use Eliasis\App\App,
     Eliasis\Model\Model,

@@ -11,8 +11,8 @@ return array(
     'Josantonius\\Ip\\' => array($vendorDir . '/josantonius/ip/src'),
     'Josantonius\\Hook\\' => array($vendorDir . '/josantonius/hook/src'),
     'Josantonius\\Database\\' => array($vendorDir . '/josantonius/database/src'),
+    'Eliasis\\Modules\\Request\\' => array($baseDir . '/src'),
     'Eliasis\\Module\\' => array($vendorDir . '/eliasis-framework/module/src'),
     'Eliasis\\' => array($vendorDir . '/eliasis-framework/eliasis/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
-    'App\\Modules\\Request\\' => array($baseDir . '/src'),
 );

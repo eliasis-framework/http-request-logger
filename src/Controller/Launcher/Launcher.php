@@ -9,12 +9,12 @@
  * @since      1.0.0
  */
 
-namespace App\Modules\Request\Controller\Launcher;
+namespace Eliasis\Modules\Request\Controller\Launcher;
 
 use Eliasis\App\App,
     Eliasis\Module\Module,
     Eliasis\Controller\Controller,
-    App\Modules\Request\Controller\Exception\RequestException;
+    Eliasis\Modules\Request\Controller\Exception\RequestException;
     
 /**
  * Module main controller.

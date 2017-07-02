@@ -9,14 +9,14 @@
  * @since      1.0.0
  */
 
-use Eliasis\App\App;
+$namespace = 'Eliasis\\Modules\\';
 
-$namespace = App::get('namespaces', 'modules') . 'Request';
+$module = 'Request\\Controller\\';
 
 return [
 
     'namespaces' => [
 
-        'controller' => $namespace . '\\Controller\\',
+        'controller' => $namespace . $namespace,
     ],
 ];

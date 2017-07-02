@@ -298,6 +298,10 @@ class Module {
         if (isset(self::$states['action'])) {
 
             $action = self::$states['action'];
+
+        } else if (isset($this->module['action'])) {
+
+            $action = $this->module['action'];
         }
 
         return ($state === 'uninstalled') ? '' : $action;
@@ -329,14 +333,14 @@ class Module {
 
         $Launcher = $that->instance('Launcher', 'controller');
 
+        $that->_setAction('');
+
+        $that->setState($state);
+        
         if (is_object($Launcher) && method_exists($Launcher, $action)) {
 
             call_user_func([$Launcher, $action]);
         }
-
-        $that->_setAction('');
-
-        $that->setState($state);
     }
 
     /**

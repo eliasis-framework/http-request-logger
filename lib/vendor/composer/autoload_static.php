@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1015213fb735ec15515d9ff398e5f4e0
+class ComposerStaticInit395f57147d88a0e60b50dec7ba7c421b
 {
     public static $prefixLengthsPsr4 = array (
         'J' => 
@@ -17,16 +17,13 @@ class ComposerStaticInit1015213fb735ec15515d9ff398e5f4e0
         ),
         'E' => 
         array (
+            'Eliasis\\Modules\\Request\\' => 24,
             'Eliasis\\Module\\' => 15,
             'Eliasis\\' => 8,
         ),
         'C' => 
         array (
             'Composer\\Installers\\' => 20,
-        ),
-        'A' => 
-        array (
-            'App\\Modules\\Request\\' => 20,
         ),
     );
 
@@ -51,6 +48,10 @@ class ComposerStaticInit1015213fb735ec15515d9ff398e5f4e0
         array (
             0 => __DIR__ . '/..' . '/josantonius/database/src',
         ),
+        'Eliasis\\Modules\\Request\\' => 
+        array (
+            0 => __DIR__ . '/../../..' . '/src',
+        ),
         'Eliasis\\Module\\' => 
         array (
             0 => __DIR__ . '/..' . '/eliasis-framework/module/src',
@@ -63,17 +64,13 @@ class ComposerStaticInit1015213fb735ec15515d9ff398e5f4e0
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
         ),
-        'App\\Modules\\Request\\' => 
-        array (
-            0 => __DIR__ . '/../../..' . '/src',
-        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1015213fb735ec15515d9ff398e5f4e0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1015213fb735ec15515d9ff398e5f4e0::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit395f57147d88a0e60b50dec7ba7c421b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit395f57147d88a0e60b50dec7ba7c421b::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

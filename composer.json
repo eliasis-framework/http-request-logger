@@ -40,7 +40,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\Modules\\Request\\" : "src/"
+            "Eliasis\\Modules\\Request\\" : "src/"
         }
     }
 }

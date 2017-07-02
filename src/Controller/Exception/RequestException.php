@@ -9,7 +9,7 @@
  * @since      1.0.0
  */
 
-namespace App\Modules\Request\Controller\Exception;
+namespace Eliasis\Modules\Request\Controller\Exception;
 
 /**
  * Exception class.

@@ -9,7 +9,7 @@
  * @since      1.0.0
  */
 
-namespace App\Modules\Request\Controller\Request;
+namespace Eliasis\Modules\Request\Controller\Request;
 
 use Josantonius\Asset\Asset,
     Eliasis\Module\Module,
