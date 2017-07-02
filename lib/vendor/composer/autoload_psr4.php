@@ -7,6 +7,7 @@ $baseDir = dirname(dirname($vendorDir));
 
 return array(
     'Josantonius\\Url\\' => array($vendorDir . '/josantonius/url/src'),
+    'Josantonius\\LoadTime\\' => array($vendorDir . '/josantonius/loadtime/src'),
     'Josantonius\\Json\\' => array($vendorDir . '/josantonius/json/src'),
     'Josantonius\\Ip\\' => array($vendorDir . '/josantonius/ip/src'),
     'Josantonius\\Hook\\' => array($vendorDir . '/josantonius/hook/src'),
