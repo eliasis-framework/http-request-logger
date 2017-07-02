@@ -98,7 +98,7 @@ class Request extends Model {
 
         $request = Module::Request()->get('table', 'requests');
 
-        $statements[] = [':ip',         $server['ip'],         'str'];
+        $statements[] = [':ip',         App::IP(),             'str'];
         $statements[] = [':uri',        $server['uri'],        'str'];
         $statements[] = [':protocol',   $server['protocol'],   'str'];
         $statements[] = [':method',     $server['method'],     'str'];

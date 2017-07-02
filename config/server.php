@@ -9,10 +9,6 @@
  * @since      1.0.0
  */
 
-use Josantonius\Ip\Ip;
-
-$ip = Ip::get();
-
 $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] :'';
 
 return [
@@ -20,7 +16,6 @@ return [
     'server' => [
 
         'referer'    => $referer,
-    	'ip'         => ($ip) ? $ip : 'unknown',
     	'uri'        => $_SERVER['REQUEST_URI'],
     	'user_agent' => $_SERVER['HTTP_USER_AGENT'],
     	'protocol'   => $_SERVER['SERVER_PROTOCOL'],
