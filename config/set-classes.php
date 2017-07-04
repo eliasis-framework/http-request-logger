@@ -9,12 +9,14 @@
  * @since      1.0.0
  */
 
-$namespace = 'Eliasis\\Modules\\Request\\Controller\\';
+use Eliasis\Module\Module;
+
+$namespace = Module::Request()->get('namespaces', 'controller');
 
 return [
 
-    'namespaces' => [
+    'class' => [
 
-        'controller' => $namespace,
+        'Launcher' => $namespace . 'Launcher\Launcher',
     ],
 ];

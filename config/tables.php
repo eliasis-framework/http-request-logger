@@ -9,19 +9,19 @@
  * @since      1.0.0
  */
 
+use Eliasis\App\App,
+    Eliasis\Module\Module;
+
+$Launcher = Module::Request()->get('class', 'Launcher');
+
+$database = App::get('db', $Launcher::getDatabaseId());
+
 return [
     
     'table' => [
 
-        'global' => [
+        'request' => [
 
-            'created' => 'created',
-            'updated' => 'updated',
-        ],
-
-        'requests' => [
-
-            'tablename'  => 'requests',
             'id'         => 'request_id',
             'ip'         => 'ip',
             'uri'        => 'uri',
@@ -32,6 +32,10 @@ return [
             'http_state' => 'http_state',
             'resp_state' => 'resp_state',
             'load_time'  => 'load_time',
+            'created'    => 'created',
+            'prefix'     => $database['prefix'],
+            'charset'    => $database['charset'],
+            'engine'     => $database['engine'],
         ],
     ],
 ];

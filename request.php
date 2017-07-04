@@ -16,7 +16,6 @@ return [
     'version'     => '1.0.0',
     'description' => 'Saves information about requests in the database.',
     'state'		  => 'active',
-    'database-id' => '',
     'category'    => 'eliasis-module',
     'uri'         => 'https://github.com/Eliasis-Framework/Request.git',
     'author'      => 'Josantonius',

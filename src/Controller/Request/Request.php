@@ -11,7 +11,10 @@
 
 namespace Eliasis\Modules\Request\Controller\Request;
 
-use Eliasis\Controller\Controller;
+use Eliasis\App\App,
+    Eliasis\Module\Module,
+    Eliasis\Controller\Controller,
+    Josantonius\LoadTime\LoadTime;
     
 /**
  * Module main controller.
@@ -21,15 +24,55 @@ use Eliasis\Controller\Controller;
 class Request extends Controller {
 
     /**
+     * Set whether the request has been inserted.
+     *
+     * @since 1.0.0
+     *
+     * @var string $inserted
+     */
+    public $inserted = false;
+
+    /**
      * Create tables.
      *
      * @since 1.0.0
      *
      * @return bool true|false
      */
-    public function createTables() {
+    public function createTable() {
 
-        return $this->model->createRequestsTable();
+        $this->model->createTable();
+    }
+
+    /**
+     * Insert row.
+     *
+     * @since 1.0.0
+     *
+     * @param int $responseState → API response
+     *
+     * @return int → id inserted
+     */
+    public function insert($responseState = 0) {
+
+        if (!$this->inserted) {
+            
+            $this->inserted = true;
+
+            $server = Module::Request()->get('server');
+
+            return $this->model->insert(
+                App::IP(),
+                $server['uri'],
+                $server['protocol'],
+                $server['method'],
+                $server['referer'],
+                $server['user_agent'],
+                http_response_code(),
+                $responseState,
+                LoadTime::end()
+            );
+        }
     }
 
     /**
@@ -39,20 +82,8 @@ class Request extends Controller {
      *
      * @return bool true|false
      */
-    public function deleteTables() {
+    public function dropTable() {
 
-        return $this->model->deleteRequestsTable();
-    }
-
-    /**
-     * Save information about the request.
-     *
-     * @since 1.0.0
-     *
-     * @return bool true|false
-     */
-    public function set() {
-
-        return $this->model->set();
+        return $this->model->dropTable();
     }
 }

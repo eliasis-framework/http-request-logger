@@ -20,6 +20,5 @@ return [
     	'user_agent' => $_SERVER['HTTP_USER_AGENT'],
     	'protocol'   => $_SERVER['SERVER_PROTOCOL'],
     	'method'     => $_SERVER['REQUEST_METHOD'],
-    	'resp_state' => 0,
     ],
 ];

@@ -46,15 +46,7 @@ Este módulo es soportado por versiones de PHP 5.6 o superiores y es compatible 
 
 Para utilizar este módulo, simplemente:
 
-**Rellena en el archivo request.php el ID de la base de datos a utilizar**
-
-```php
-return [
-    'database-id' => 'your-custom-id',
-];
-```
-
-**O agregua lo siguiente a los archivos de configuración de la aplicación**
+**Agregua lo siguiente a los archivos de configuración de la aplicación**
 
 ```php
 return [
@@ -69,13 +61,13 @@ return [
 ];
 ```
 
-**Ejecutar el hook para guardar la información sobre la petición**
+**La petición se guardará en la base de datos cuando todo haya sido ejecutado (register_shutdown_function). Puedes guardarla antes ejecuntando el siguiente hook:**
 
 ```php
 
-use Josantonius\Hook\Hook;
+Hook::doAction('Request\insert');
 
-Hook::doAction('Request\set');
+Hook::doAction('Request\insert', $responseState = 587); // Opcional
 ```
 
 ### Contribuir

@@ -168,61 +168,6 @@
         ]
     },
     {
-        "name": "josantonius/database",
-        "version": "1.1.4",
-        "version_normalized": "1.1.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Josantonius/PHP-Database.git",
-            "reference": "b8c04a0b4455c7db5c88f135ebeed56dc7943649"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Josantonius/PHP-Database/zipball/b8c04a0b4455c7db5c88f135ebeed56dc7943649",
-            "reference": "b8c04a0b4455c7db5c88f135ebeed56dc7943649",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0"
-        },
-        "time": "2017-05-16 03:15:52",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Josantonius\\Database\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Josantonius",
-                "email": "hello@josantonius.com",
-                "homepage": "https://josantonius.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "Library for SQL database management to be used by several providers at the same time.",
-        "keywords": [
-            "database",
-            "hhvm",
-            "mariadb",
-            "mysql",
-            "orm",
-            "php",
-            "query",
-            "sql"
-        ]
-    },
-    {
         "name": "josantonius/url",
         "version": "1.1.2",
         "version_normalized": "1.1.2.0",
@@ -491,24 +436,79 @@
         ]
     },
     {
-        "name": "josantonius/loadtime",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
+        "name": "josantonius/database",
+        "version": "1.1.5",
+        "version_normalized": "1.1.5.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/Josantonius/PHP-LoadTime.git",
-            "reference": "9c5fd4b3c8b7caa1a3c860dc351dbb7ecbac410d"
+            "url": "https://github.com/Josantonius/PHP-Database.git",
+            "reference": "7bc5935105d22c0966d6519b6a6415eef69a39ac"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Josantonius/PHP-LoadTime/zipball/9c5fd4b3c8b7caa1a3c860dc351dbb7ecbac410d",
-            "reference": "9c5fd4b3c8b7caa1a3c860dc351dbb7ecbac410d",
+            "url": "https://api.github.com/repos/Josantonius/PHP-Database/zipball/7bc5935105d22c0966d6519b6a6415eef69a39ac",
+            "reference": "7bc5935105d22c0966d6519b6a6415eef69a39ac",
             "shasum": ""
         },
         "require": {
             "php": "^5.6 || ^7.0"
         },
-        "time": "2017-03-18 17:15:03",
+        "time": "2017-07-03 20:14:57",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Josantonius\\Database\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Josantonius",
+                "email": "hello@josantonius.com",
+                "homepage": "https://josantonius.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Library for SQL database management to be used by several providers at the same time.",
+        "keywords": [
+            "database",
+            "hhvm",
+            "mariadb",
+            "mysql",
+            "orm",
+            "php",
+            "query",
+            "sql"
+        ]
+    },
+    {
+        "name": "josantonius/loadtime",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Josantonius/PHP-LoadTime.git",
+            "reference": "22c0963bc22761e2ffb574a0d554d45df94e1ec0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Josantonius/PHP-LoadTime/zipball/22c0963bc22761e2ffb574a0d554d45df94e1ec0",
+            "reference": "22c0963bc22761e2ffb574a0d554d45df94e1ec0",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6 || ^7.0"
+        },
+        "time": "2017-07-04 20:08:28",
         "type": "library",
         "extra": {
             "branch-alias": {

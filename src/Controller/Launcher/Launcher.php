@@ -14,6 +14,7 @@ namespace Eliasis\Modules\Request\Controller\Launcher;
 use Eliasis\App\App,
     Eliasis\Module\Module,
     Eliasis\Controller\Controller,
+    Josantonius\LoadTime\LoadTime,
     Eliasis\Modules\Request\Controller\Exception\RequestException;
     
 /**
@@ -29,12 +30,15 @@ class Launcher extends Controller {
      * @since 1.0.0
      */
     public function init() {
+        
+        if (!LoadTime::isActive()) {
 
-        $this->_getDatabaseId();
+            LoadTime::start();
+        }
 
         register_shutdown_function(
 
-            [Module::Request()->instance('Request'), 'set']
+            [Module::Request()->instance('Request'), 'insert']
         );
     }
 
@@ -43,31 +47,22 @@ class Launcher extends Controller {
      *
      * @since 1.0.0
      *
-     * @throws RequestException →  database id not found
+     * @throws RequestException → database id not found
      */
-    private function _getDatabaseId() {
+    public static function getDatabaseId() {
 
-        if (empty(Module::Request()->get('database-id'))) {
+        $id = App::get('module', 'Request', 'db-id');
 
-            $id = App::get('module', 'Request', 'database-id');
+        if (empty($id)) {
 
-            $id = empty($id) ? Module::Request()->get('database-id') : $id;
+            $message = 'A valid database id was not found at';
 
-            $path = Module::Request()->get('path', 'root');
+            $option = "App::get('module', 'Request', 'db-id')";
 
-            $slug = Module::Request()->get('slug');
-
-            $pathfile = $path . $slug . '.php';
-
-            if (empty($id)) {
-
-                $message = 'A valid database id was not found at';
-
-                throw new RequestException($message.': '.$pathfile, 821);
-            }
-
-            Module::Request()->set('database-id', $id);
+            throw new RequestException($message . ': ' . $option, 821);
         }
+
+        return Module::Request()->set('db-id', $id);
     }
 
     /**
@@ -77,9 +72,7 @@ class Launcher extends Controller {
      */
     public function activation() {
 
-        $this->_getDatabaseId();
-
-        Module::Request()->instance('Request')->createTables();
+        Module::Request()->instance('Request')->createTable();
     }
 
     /**
@@ -89,8 +82,6 @@ class Launcher extends Controller {
      */
     public function deactivation() {
 
-        $this->_getDatabaseId();
-
-        Module::Request()->instance('Request')->deleteTables();
+        Module::Request()->instance('Request')->dropTable();
     }
 }

@@ -46,15 +46,7 @@ This module is supported by PHP versions 5.6 or higher and is compatible with HH
 
 To use this module, simply:
 
-**Fill in request.php file the database id to use**
-
-```php
-return [
-    'database-id' => 'your-custom-id',
-];
-```
-
-**Or add the following to the application configuration files**
+**Add the following to the application configuration files**
 
 ```php
 return [
@@ -63,19 +55,21 @@ return [
 
         'Request' => [
 
-        	'database-id' => 'custom-id',
+        	'db-id' => 'custom-id',
         ]
     ],
 ];
 ```
 
-**Execute the action hook to save the info of the request**
+**The request will be saved to the database when everything has been executed (register_shutdown_function). You can save it by executing the following hook:**
 
 ```php
 
 use Josantonius\Hook\Hook;
 
-Hook::doAction('Request\set');
+Hook::doAction('Request\insert');
+
+Hook::doAction('Request\insert', $responseState = 587); // Optional
 ```
 
 ### Contribute

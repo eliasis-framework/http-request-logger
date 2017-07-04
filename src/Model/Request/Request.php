@@ -14,7 +14,6 @@ namespace Eliasis\Modules\Request\Model\Request;
 use Eliasis\App\App,
     Eliasis\Model\Model,
     Eliasis\Module\Module,
-    Josantonius\LoadTime\LoadTime,
     Josantonius\Database\Database;
     
 /**
@@ -25,40 +24,13 @@ use Eliasis\App\App,
 class Request extends Model {
 
     /**
-     * Database id.
+     * Database table name.
      *
      * @since 1.0.0
      *
      * @var string $id
      */
-    public $id;
-
-    /**
-     * Database prefix.
-     *
-     * @since 1.0.0
-     *
-     * @var string $db
-     */
-    public $prefix;
-
-    /**
-     * Database engine.
-     *
-     * @since 1.0.0
-     *
-     * @var string $engine
-     */
-    public $engine;
-
-    /**
-     * Database charset.
-     *
-     * @since 1.0.0
-     *
-     * @var string $charset
-     */
-    public $charset;
+    public $id = 'request';
 
     /**
      * Database object connection.
@@ -70,106 +42,117 @@ class Request extends Model {
     public $db;
 
     /**
+     * Database table columns.
+     *
+     * @since 1.0.0
+     *
+     * @var array $data
+     */
+    public $data;
+
+    /**
      * Get database connection.
      *
      * @since 1.0.0
      */
     public function __construct() {
 
-        $this->id = Module::Request()->get('database-id');
+        $database = Module::Request()->get('db-id');
+        
+        $this->db = Database::getConnection($database);
 
-        $this->prefix  = App::get('db', $this->id, 'prefix');
-        $this->charset = App::get('db', $this->id, 'charset');
-        $this->engine  = App::get('db', $this->id, 'engine');
-
-        $this->db = Database::getConnection($this->id);
+        $this->data = Module::Request()->get('table', $this->id);
     }
 
     /**
-     * Set request.
-     *
-     * @since 1.0.0
-     *
-     * @return int → request id
-     */
-    public function set() {
-
-        $server = Module::Request()->get('server');
-
-        $request = Module::Request()->get('table', 'requests');
-
-        $statements[] = [':ip',         App::IP(),             'str'];
-        $statements[] = [':uri',        $server['uri'],        'str'];
-        $statements[] = [':protocol',   $server['protocol'],   'str'];
-        $statements[] = [':method',     $server['method'],     'str'];
-        $statements[] = [':referer',    $server['referer'],    'str'];
-        $statements[] = [':user_agent', $server['user_agent'], 'str'];
-        $statements[] = [':http_state', http_response_code(),  'int'];
-        $statements[] = [':resp_state', $server['resp_state'], 'int'];
-        $statements[] = [':load_time',  LoadTime::end()];
-
-        $data = [
-            $request['ip']         => ":ip",
-            $request['uri']        => ":uri",
-            $request['protocol']   => ":protocol",
-            $request['method']     => ":method",
-            $request['referer']    => ":referer",
-            $request['user_agent'] => ":user_agent",
-            $request['http_state'] => ":http_state",
-            $request['resp_state'] => ":resp_state",
-            $request['load_time']  => ":load_time",
-        ];
-
-        $query = $this->db->insert($data, $statements)
-                          ->in($this->prefix . $request['tablename']);
-
-        return $query->execute('id');
-    }
-
-    /**
-     * Create requests table.
+     * Create table.
      * 
      * @return boolean
      */
-    public function createRequestsTable() {
-        
-        $request = Module::Request()->get('table', 'requests');
-
-        $created = Module::Request()->get('table', 'global', 'created');
+    public function createTable() {
 
         $params = [
-            $request['id']         => 'INT(9) AUTO_INCREMENT PRIMARY KEY', 
-            $request['ip']         => 'VARCHAR(15)  NOT NULL',
-            $request['uri']        => 'TEXT         NOT NULL',
-            $request['protocol']   => 'VARCHAR(100) NOT NULL',
-            $request['method']     => 'VARCHAR(15)  NOT NULL',
-            $request['referer']    => 'VARCHAR(255) NOT NULL',
-            $request['user_agent'] => 'VARCHAR(255) NOT NULL',
-            $request['http_state'] => 'INT(3)       NOT NULL',
-            $request['resp_state'] => 'INT(3)       NOT NULL',
-            $request['load_time']  => 'FLOAT        NOT NULL',
-            $created               => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
+            $this->data['id'] => 'INT(9) AUTO_INCREMENT PRIMARY KEY', 
+            $this->data['ip']         => 'VARCHAR(15)  NOT NULL',
+            $this->data['uri']        => 'TEXT         NOT NULL',
+            $this->data['protocol']   => 'VARCHAR(100) NOT NULL',
+            $this->data['method']     => 'VARCHAR(15)  NOT NULL',
+            $this->data['referer']    => 'VARCHAR(255) NOT NULL',
+            $this->data['user_agent'] => 'VARCHAR(255) NOT NULL',
+            $this->data['http_state'] => 'INT(3)       NOT NULL',
+            $this->data['resp_state'] => 'INT(3)       NOT NULL',
+            $this->data['load_time']  => 'FLOAT        NOT NULL',
+            $this->data['created']    => 'TIMESTAMP DEFAULT ' .
+                                         'CURRENT_TIMESTAMP',
         ];
             
         $query = $this->db->create($params)
-                          ->table($this->prefix . $request['tablename'])
-                          ->engine($this->engine)
-                          ->charset($this->charset);
+                          ->table($this->data['prefix'] . $this->id)
+                          ->engine($this->data['engine'])
+                          ->charset($this->data['charset']);
 
         return $query->execute();
     }
 
     /**
+     * Insert row.
+     *
+     * @since 1.0.0
+     *
+     * @param string $ip        → request ip
+     * @param string $uri       → request uri
+     * @param string $protocol  → request protocol
+     * @param string $method    → request method
+     * @param string $referer   → request referer
+     * @param string $userAgent → request user agent
+     * @param int    $httpState → request http state
+     * @param int    $respState → request response state
+     * @param float  $loadTime  → request load time
+     *
+     * @return int → id inserted
+     */
+    public function insert($ip, $uri, $protocol, $method, $referer, $userAgent, $httpState, $respState, $loadTime) {
+
+        $data = [
+
+            $this->data['ip']         => '?',
+            $this->data['uri']        => '?',
+            $this->data['protocol']   => '?', 
+            $this->data['method']     => '?',
+            $this->data['referer']    => '?',
+            $this->data['user_agent'] => '?',
+            $this->data['http_state'] => '?',
+            $this->data['resp_state'] => '?',
+            $this->data['load_time']  => '?',
+        ];
+
+        $statements[] = [1, $ip,        'str'];
+        $statements[] = [2, $uri,       'str'];
+        $statements[] = [3, $protocol,  'str'];
+        $statements[] = [4, $method,    'str'];
+        $statements[] = [5, $referer,   'str'];
+        $statements[] = [6, $userAgent, 'str'];
+        $statements[] = [7, $httpState, 'int'];
+        $statements[] = [8, $respState, 'int'];
+        $statements[] = [9, $loadTime];
+
+        $query = $this->db->insert($data, $statements)
+                          ->from($this->data['prefix'] . $this->id);
+
+        return $query->execute('id');
+    }
+
+    /**
      * Delete requests table.
-     * 
+     *
+     * @since 1.0.0
+     *
      * @return boolean
      */
-    public function deleteRequestsTable() {
-
-        $table = Module::Request()->get('table', 'requests', 'tablename');
+    public function dropTable() {
 
         $query = $this->db->drop()
-                          ->table($this->prefix . $table);
+                          ->table($this->data['prefix'] . $this->id);
 
         return $query->execute();
     }

@@ -18,6 +18,6 @@ return [
 	'hooks' => [
 
 		['module-load', [$controller.'Launcher\\Launcher', 'init'], 8, 0],
-		['Request\set', [$controller.'Request\\Request',   'set'],  8, 0],
+		['Request\insert', [$controller.'Request\\Request', 'insert'], 8, 1],
 	]
 ];
