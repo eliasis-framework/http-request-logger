@@ -10,8 +10,18 @@
 - [Requirements](#requirements)
 - [Quick Start and Examples](#quick-start-and-examples)
 - [Contribute](#contribute)
-- [Licensing](#licensing)
+- [License](#license)
 - [Copyright](#copyright)
+
+---
+
+<p align="center"><strong>Take a look at the code</strong></p>
+
+<p align="center">
+  <a href="" title="Take a look at the code">
+  	<img src="https://raw.githubusercontent.com/Josantonius/PHP-Algorithm/master/resources/youtube-thumbnail.jpg">
+  </a>
+</p>
 
 ---
 
@@ -81,7 +91,7 @@ Hook::doAction('Request\insert', $responseState = 587); // Optional
 
 This is intended for large and long-lived objects.
 
-### Licensing
+### License
 
 This project is licensed under **MIT license**. See the [LICENSE](LICENSE) file for more info.
 

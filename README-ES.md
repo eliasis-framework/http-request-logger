@@ -15,6 +15,16 @@
 
 ---
 
+<p align="center"><strong>Echa un vistazo al código</strong></p>
+
+<p align="center">
+  <a href="" title="Echa un vistazo al código">
+  	<img src="https://raw.githubusercontent.com/Josantonius/PHP-Algorithm/master/resources/youtube-thumbnail.jpg">
+  </a>
+</p>
+
+---
+
 Guarda información sobre las peticiones en la base de datos.
 
 ### Instalación 
