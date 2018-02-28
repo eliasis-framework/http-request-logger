@@ -46,7 +46,7 @@ before_script:
   - travis_retry composer install
 
 script:
-  - phpunit
+  - phpunit --coverage-clover=coverage.xml
   - phpcs --standard=phpcs.xml $(find . -name '*.php')
   - phpmd src,tests text ./phpmd.xml
 
