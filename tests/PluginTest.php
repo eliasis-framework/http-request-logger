@@ -124,7 +124,7 @@ final class PluginTest extends TestCase
      */
     public function testTableShouldBeDeletedWhenUninstallThePlugin()
     {
-        Plugin::HttpRequestLogger()->doAction('activation');
+        Plugin::HttpRequestLogger()->doAction('uninstallation');
 
         $rows = $this->db->query("SELECT count(*)
                                   FROM information_schema.tables
@@ -133,6 +133,6 @@ final class PluginTest extends TestCase
 
         $result = array_values((array) $rows[0]);
 
-        $this->assertSame((int) $result[0], 1);
+        $this->assertSame((int) $result[0], 0);
     }
 }
