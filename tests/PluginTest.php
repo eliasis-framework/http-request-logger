@@ -89,7 +89,7 @@ final class PluginTest extends TestCase
 
         $rows = $this->db->query("SELECT count(*)
                                   FROM information_schema.tables
-                                  WHERE table_schema = 'phpunit'
+                                  WHERE table_schema = '$GLOBALS['DB_NAME']'
                                   AND table_name = 'test_request'");
 
         $result = array_values((array) $rows[0]);
@@ -128,7 +128,7 @@ final class PluginTest extends TestCase
 
         $rows = $this->db->query("SELECT count(*)
                                   FROM information_schema.tables
-                                  WHERE table_schema = 'phpunit'
+                                  WHERE table_schema = '$GLOBALS['DB_NAME']'
                                   AND table_name = 'test_request'");
 
         $result = array_values((array) $rows[0]);
