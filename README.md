@@ -66,9 +66,18 @@ This will create the `test_request` table and automatically save all HTTP reques
 
 The table structure created is as follows:
 
-| request_id | request_ip | request_uri | request_protocol | request_method | request_referer | request_user_agent | request_http_state | request_load_time | created
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `1` | `87.142.85.70` | `/sample-app/` | `HTTP/1.1` | `GET` | `http://www.google.es/` | `Mozilla/5.0 (...)` | `200` | `0.008` | `2018-02-28 08:26:43` |
+| Columns | Datatype | Example |
+| --- | --- | --- |
+| request_id | INT(9) | 1 |
+| request_ip | VARCHAR(45) | 87.142.85.70 |
+| request_uri | TEXT | /sample-app/ |
+| request_protocol | VARCHAR(100) | HTTP/1.1 |
+| request_method | VARCHAR(15) | GET |
+| request_referer | VARCHAR(255) | http://www.google.es/ |
+| request_user_agent | VARCHAR(255) | Mozilla/5.0 (...) |
+| request_http_state | INT(3) | 200 |
+| request_load_time | FLOAT | 0.008 |
+| created | INT(9) | TIMESTAMP | 2018-02-28 08:26:43 |
 
 ## Tests 
 
