@@ -1,13 +1,13 @@
 {
-    "name":        "eliasis-framework/request",
-    "version":     "1.0.0",
-    "description": "Saves information about requests in the database.",
-    "type": "eliasis-module",
+    "name":        "eliasis-framework/http-request-logger",
+    "description": "Save HTTP request information to the database.",
+    "type": "eliasis-plugin",
     "keywords": [
         "Eliasis",
         "Framework", 
         "Request",
-        "Eliasis module",
+        "HTTP Request Logger",
+        "Eliasis plugin",
         "HMVC",
         "PHP"
     ],
@@ -21,27 +21,58 @@
         }
     ],
     "config": {
-        "vendor-dir": "lib/vendor",
         "preferred-install": "dist"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "support": {
-        "issues": "https://github.com/Eliasis-Framework/request/issues",
+        "issues": "https://github.com/eliasis-framework/http-request-logger/issues",
         "forum": "http://stackoverflow.com/tags/eliasis",
-        "source": "https://github.com/Eliasis-Framework/request"
+        "source": "https://github.com/eliasis-framework/http-request-logger"
     },
     "require": {
-        "eliasis-framework/eliasis" : "^1.1.0",
-        "eliasis-framework/module"  : "^1.0.6",
-        "composer/installers"       : "^1.3.0",
-        "Josantonius/LoadTime"      : "^1.1.2",
-        "Josantonius/Ip"            : "^1.1.1",
-        "Josantonius/Hook"          : "^1.0.5",
-        "Josantonius/Database"      : "^1.1.4"
+        "php": "^5.6 || ^7.0",
+        "eliasis-framework/eliasis"   : "^1.1.3",
+        "eliasis-framework/complement": "^1.1.1",
+        "composer/installers"         : "^1.4.0",
+        "Josantonius/LoadTime"        : "^1.1.7",
+        "Josantonius/Ip"              : "^1.1.7",
+        "Josantonius/Hook"            : "^1.1.0",
+        "Josantonius/Database"        : "^1.1.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit"          : "^5.7 || ^6.0",
+        "squizlabs/php_codesniffer": "^3.0",
+        "friendsofphp/php-cs-fixer": "^2.3 || ^2.8",
+        "phpmd/phpmd"              : "^2.6"
     },
     "autoload": {
         "psr-4": {
-            "Eliasis\\Modules\\Request\\" : "src/"
+            "Eliasis\\Plugins\\HttpRequestLogger\\" : "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eliasis\\Plugins\\HttpRequestLogger\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1-dev"
+        }
+    },
+    "scripts": {
+        "phpunit": "vendor/bin/phpunit --colors=always;",
+        "phpcs": "vendor/bin/phpcs --standard=phpcs.xml $(find . -name '*.php');",
+        "phpmd": "vendor/bin/phpmd src,tests text ./phpmd.xml",
+        "fix": [
+            "vendor/bin/php-cs-fixer fix -v",
+            "vendor/bin/phpcbf src tests"
+        ],
+        "tests": [
+            "clear",
+            "@phpunit",
+            "@phpmd",
+            "@phpcs"
+        ]
     }
 }

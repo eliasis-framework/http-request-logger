@@ -1,0 +1,43 @@
+{
+   "id": "HttpRequestLogger",
+   "name": "HTTP Request Logger",
+   "version": "1.0.1",
+   "description": {
+      "en": "Save HTTP request information to the database.",
+      "es": "Guarda información sobre peticiones HTTP en la base de datos."
+   },
+   "state": "active",
+   "category": "eliasis-plugin",
+   "url": "https://github.com/eliasis-framework/http-request-logger.git",
+   "author": "Josantonius",
+   "author-url": "https://josantonius.com/",
+   "license": "MIT",
+   "hooks-controller": "Launcher",
+   "url-import": "https://raw.githubusercontent.com/eliasis-framework/http-request-logger/master/",
+   "installation-files": {
+      "http-request-logger": {
+         "0": "http-request-logger.jsond",
+         "1": "LICENSE",
+         "2": "composer.json",
+         "config": [
+            "add-urls.php",
+            "assets",
+            "namespaces.php",
+            "paths",
+            "set-hooks",
+            "settings.php"
+         ],
+         "src": {
+            "controller": {
+               "0": "class-main.php"
+            },
+            "model": {
+               "0": "class-main.php"
+            },
+            "data": {
+               "0": "plugins.jsond"
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,8 @@
+{
+    "Default": {
+        "HttpRequestLogger": {
+            "action": "activation",
+            "state": "active"
+        }
+    }
+}

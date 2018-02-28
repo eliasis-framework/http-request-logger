@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 1.0.1 - 2018-02-28
+
+* Implemented `PHP Mess Detector` to detect inconsistencies in code styles.
+
+* Implemented `PHP Code Beautifier and Fixer` to fixing errors automatically.
+
+* Implemented `PHP Coding Standards Fixer` to organize PHP code automatically according to PSR standards.
+
+* Implemented `PSR-4 autoloader standard` from all library files.
+
+* Implemented `PSR-2 coding standard` from all library PHP files.
+
+* Implemented `PHPCS` to ensure that PHP code complies with `PSR2` code standards.
+
+* Implemented `Codacy` to automates code reviews and monitors code quality over time.
+
+* Implemented `Codecov` to coverage reports.
+
 ## 1.0.0 - 2017-07-02
 
 * Added `App\Modules\Request\Controller\Exception\RequestException` class.

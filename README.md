@@ -1,103 +1,131 @@
-# Request · Eliasis PHP Framework module
+# HTTP Request Logger · Eliasis PHP Framework plugin
 
-[![Latest Stable Version](https://poser.pugx.org/eliasis-framework/request/v/stable)](https://packagist.org/packages/eliasis-framework/request) [![Total Downloads](https://poser.pugx.org/eliasis-framework/request/downloads)](https://packagist.org/packages/eliasis-framework/request) [![Latest Unstable Version](https://poser.pugx.org/eliasis-framework/request/v/unstable)](https://packagist.org/packages/eliasis-framework/request) [![License](https://poser.pugx.org/eliasis-framework/request/license)](https://packagist.org/packages/eliasis-framework/request)
+[![Packagist](https://img.shields.io/packagist/v/eliasis-framework/http-request-logger.svg)](https://packagist.org/packages/eliasis-framework/http-request-logger) [![Downloads](https://img.shields.io/packagist/dt/eliasis-framework/http-request-logger.svg)](https://github.com/eliasis-framework/http-request-logger) [![License](https://img.shields.io/packagist/l/eliasis-framework/http-request-logger.svg)](https://github.com/eliasis-framework/http-request-logger/blob/master/LICENSE) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4f65d7ad0ee14b53a8c30c70911903de)](https://www.codacy.com/app/Josantonius/Eliasis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eliasis-framework/http-request-logger&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/eliasis-framework/http-request-logger.svg?branch=master)](https://travis-ci.org/eliasis-framework/http-request-logger) [![PSR2](https://img.shields.io/badge/PSR-2-1abc9c.svg)](http://www.php-fig.org/psr/psr-2/) [![PSR4](https://img.shields.io/badge/PSR-4-9b59b6.svg)](http://www.php-fig.org/psr/psr-4/) [![codecov](https://codecov.io/gh/eliasis-framework/http-request-logger/branch/master/graph/badge.svg)](https://codecov.io/gh/eliasis-framework/http-request-logger)
 
 [Versión en español](README-ES.md)
 
+Save HTTP request information to the database.
+
 ---
 
-- [Installation](#installation)
 - [Requirements](#requirements)
-- [Quick Start and Examples](#quick-start-and-examples)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
+- [TODO](#-todo)
 - [Contribute](#contribute)
 - [License](#license)
 - [Copyright](#copyright)
 
 ---
 
-<p align="center"><strong>Take a look at the code</strong></p>
+## Requirements
 
-<p align="center">
-  <a href="https://youtu.be/HowOj_rzkp0" title="Take a look at the code">
-  	<img src="https://raw.githubusercontent.com/Josantonius/PHP-Algorithm/master/resources/youtube-thumbnail.jpg">
-  </a>
-</p>
+This plugin is supported by **PHP versions 5.6** or higher and is compatible with **HHVM versions 3.0** or higher.
 
----
+## Installation
 
-Saves information about requests in the database.
+The preferred way to install this extension is through [Composer](http://getcomposer.org/download/).
 
-### Installation
+To install **HTTP Request Logger**, simply:
 
-You have several options to install a module in Eliasis PHP Framework:
+    $ composer require eliasis-framework/http-request-logger
 
-**Composer**
+The previous command will only install the necessary files, if you prefer to **download the entire source code** you can use:
 
-The best way to do this is to use [Composer](http://getcomposer.org/download/).
+    $ composer require eliasis-framework/http-request-logger --prefer-source
 
-    $ composer require eliasis-framework/request
+You can also **clone the complete repository** with Git:
 
-The previous command will only install the necessary files, if you prefer to download the entire source code (including tests, vendor folder, exceptions not used, docs...) you can use:
+    $ git clone https://github.com/eliasis-framework/http-request-logger.git
 
-    $ composer require eliasis-framework/request --prefer-source
-    
-**Git**
+## Usage
 
-You can also extract the Eliasis module content in app/modules/request/ or use [git clone](http://www.kernel.org/pub/software/scm/git/docs/git-clone.html) in the modules directory.
-
-    $ cd app/modules
-    $ git clone https://github.com/Eliasis-Framework/request.git
-
-### Requirements
-
-This module is supported by PHP versions 5.6 or higher and is compatible with HHVM versions 3.0 or higher.
-
-### Quick Start and Examples
-
-To use this module, simply:
-
-**Add the following to the application configuration files**
+To use this plugin, your [Eliasis application](https://github.com/eliasis-framework/eliasis) must use the [PHP-Database](https://eliasis-framework.github.io/eliasis/v1.1.3/lang/en/#libraries-Database) library and add the following to the application configuration files:
 
 ```php
+/**
+ * eliasis-app/config/complements.php
+ */
 return [
 
-    'module' => [
+    'plugin' => [
 
-        'Request' => [
+        'http-request-logger' => [
 
-        	'db-id' => 'custom-id',
-        ]
+            'db-id' => 'app',
+            'db-prefix' => 'test_',
+            'db-charset' => 'utf8',
+            'db-engine' => 'innodb'
+        ],
     ],
 ];
 ```
 
-**The request will be saved to the database when everything has been executed (register_shutdown_function). You can save it by executing the following hook:**
+This will create the `test_request` table and automatically save all HTTP requests.
 
-```php
+The table structure created is as follows:
 
-use Josantonius\Hook\Hook;
+| request_id | request_ip | request_uri | request_protocol | request_method | request_referer | request_user_agent | request_http_state | request_load_time | created
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `1` | `87.142.85.70` | `/sample-app/` | `HTTP/1.1` | `GET` | `http://www.google.es/` | `Mozilla/5.0 (...)` | `200` | `0.008` | `2018-02-28 08:26:43` |
 
-Hook::doAction('Request\insert');
+## Tests 
 
-Hook::doAction('Request\insert', $responseState = 587); // Optional
-```
+To run [tests](tests) you just need [composer](http://getcomposer.org/download/) and to execute the following:
 
-### Contribute
-1. Check for open issues or open a new issue to start a discussion around a bug or feature.
-1. Fork the repository on GitHub to start making your changes.
-1. Write one or more tests for the new feature or that expose the bug.
-1. Make code changes to implement the feature or fix the bug.
-1. Send a pull request to get your changes merged and published.
+    $ git clone https://github.com/eliasis-framework/http-request-logger.git
+    
+    $ cd http-request-logger
 
-This is intended for large and long-lived objects.
+    $ composer install
 
-### License
+Run unit tests with [PHPUnit](https://phpunit.de/):
+
+    $ composer phpunit
+
+Run [PSR2](http://www.php-fig.org/psr/psr-2/) code standard tests with [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer):
+
+    $ composer phpcs
+
+Run [PHP Mess Detector](https://phpmd.org/) tests to detect inconsistencies in code style:
+
+    $ composer phpmd
+
+Run all previous tests:
+
+    $ composer tests
+
+## ☑ TODO
+
+- [ ] Add getter methods.
+- [ ] Add new feature.
+- [ ] Improve tests.
+- [ ] Improve documentation.
+- [ ] Refactor code for disabled code style rules. See [phpmd.xml](phpmd.xml) and [.php_cs.dist](.php_cs.dist).
+
+## Contribute
+
+If you would like to help, please take a look at the list of
+[issues](https://github.com/eliasis-framework/http-request-logger/issues) or the [To Do](#-todo) checklist.
+
+**Pull requests**
+
+* [Fork and clone](https://help.github.com/articles/fork-a-repo).
+* Run the command `composer install` to install the dependencies.
+  This will also install the [dev dependencies](https://getcomposer.org/doc/03-cli.md#install).
+* Run the command `composer fix` to excute code standard fixers.
+* Run the [tests](#tests).
+* Create a **branch**, **commit**, **push** and send me a
+  [pull request](https://help.github.com/articles/using-pull-requests).
+
+## License
 
 This project is licensed under **MIT license**. See the [LICENSE](LICENSE) file for more info.
 
-### Copyright
+## Copyright
 
-2017 Josantonius, [josantonius.com](https://josantonius.com/)
+2017 - 2018 Josantonius, [josantonius.com](https://josantonius.com/)
 
 If you find it useful, let me know :wink:
 
