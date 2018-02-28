@@ -6,7 +6,7 @@
  * @copyright 2017 - 2018 (c) Josantonius - HTTP Request Logger
  * @license   https://opensource.org/licenses/MIT - The MIT License (MIT)
  * @link      https://github.com/eliasis-framework/http-request-logger.git
- * @since     1.0.0
+ * @since     1.0.1
  */
 return [
     'plugin' => [

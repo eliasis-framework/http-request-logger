@@ -16,7 +16,7 @@ use Josantonius\Database\Database;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests class for WP_Plugin_Rating Eliasis component.
+ * Tests class for HTTP Request Logger Eliasis plugin.
  *
  * @runTestsInSeparateProcesses
  */
@@ -117,5 +117,22 @@ final class PluginTest extends TestCase
         $this->assertSame($result[0]->request_referer, 'http://www.google.es/');
         $this->assertSame($result[0]->request_user_agent, 'Mozilla/5.0');
         $this->assertSame($result[0]->request_http_state, '0');
+    }
+
+    /**
+     * A table should be deleted when uninstall the plugin.
+     */
+    public function testTableShouldBeDeletedWhenUninstallThePlugin()
+    {
+        Plugin::HttpRequestLogger()->doAction('activation');
+
+        $rows = $this->db->query("SELECT count(*)
+                                  FROM information_schema.tables
+                                  WHERE table_schema = 'phpunit'
+                                  AND table_name = 'test_request'");
+
+        $result = array_values((array) $rows[0]);
+
+        $this->assertSame((int) $result[0], 1);
     }
 }
