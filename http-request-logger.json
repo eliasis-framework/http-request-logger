@@ -20,22 +20,22 @@
          "1": "LICENSE",
          "2": "composer.json",
          "config": [
-            "add-urls.php",
-            "assets",
+            "database.php",
             "namespaces.php",
-            "paths",
-            "set-hooks",
-            "settings.php"
+            "server.php",
+            "set-hooks.php",
+            "tables.php"
          ],
          "src": {
-            "controller": {
-               "0": "class-main.php"
+            "Controller": {
+               "0": "Launcher.php",
+               "1": "Request.php",
+               "Exception": [
+                  "RequestException.php"
+               ],
             },
-            "model": {
-               "0": "class-main.php"
-            },
-            "data": {
-               "0": "plugins.jsond"
+            "Model": {
+               "0": "Request.php"
             }
          }
       }
