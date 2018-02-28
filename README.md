@@ -66,7 +66,7 @@ This will create the `test_request` table and automatically save all HTTP reques
 
 The table structure created is as follows:
 
-| Columns | Datatype | Example |
+| Columns | Data type | Example |
 | --- | --- | --- |
 | request_id | INT(9) | 1 |
 | request_ip | VARCHAR(45) | 87.142.85.70 |
