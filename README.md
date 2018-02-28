@@ -77,7 +77,7 @@ The table structure created is as follows:
 | request_user_agent | VARCHAR(255) | Mozilla/5.0 (...) |
 | request_http_state | INT(3) | 200 |
 | request_load_time | FLOAT | 0.008 |
-| created | INT(9) | TIMESTAMP | 2018-02-28 08:26:43 |
+| created | TIMESTAMP | 2018-02-28 08:26:43 |
 
 ## Tests 
 
