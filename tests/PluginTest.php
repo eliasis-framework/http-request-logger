@@ -23,6 +23,13 @@ use PHPUnit\Framework\TestCase;
 final class PluginTest extends TestCase
 {
     /**
+     * Table name.
+     *
+     * @var string
+     */
+    protected $table = 'test_request';
+
+    /**
      * App instance.
      *
      * @var object
@@ -89,8 +96,8 @@ final class PluginTest extends TestCase
 
         $rows = $this->db->query("SELECT count(*)
                                   FROM information_schema.tables
-                                  WHERE table_schema = '$GLOBALS['DB_NAME']'
-                                  AND table_name = 'test_request'");
+                                  WHERE table_schema = '{$GLOBALS['DB_NAME']}'
+                                  AND table_name = '$this->table'");
 
         $result = array_values((array) $rows[0]);
 
@@ -105,7 +112,7 @@ final class PluginTest extends TestCase
         Plugin::HttpRequestLogger()->doAction('activation');
 
         $result = $this->db->select()
-                         ->from('test_request')
+                         ->from($this->table)
                          ->where(['request_id = 1'])
                          ->execute();
 
@@ -128,8 +135,8 @@ final class PluginTest extends TestCase
 
         $rows = $this->db->query("SELECT count(*)
                                   FROM information_schema.tables
-                                  WHERE table_schema = '$GLOBALS['DB_NAME']'
-                                  AND table_name = 'test_request'");
+                                  WHERE table_schema = '{$GLOBALS['DB_NAME']}'
+                                  AND table_name = '$this->table'");
 
         $result = array_values((array) $rows[0]);
 
