@@ -16,7 +16,7 @@
    "url-import": "https://raw.githubusercontent.com/eliasis-framework/http-request-logger/master/",
    "installation-files": {
       "http-request-logger": {
-         "0": "http-request-logger.jsond",
+         "0": "http-request-logger.json",
          "1": "LICENSE",
          "2": "composer.json",
          "config": [
