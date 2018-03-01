@@ -26,6 +26,11 @@
             "set-hooks.php",
             "tables.php"
          ],
+         "public": {
+            "images": [
+               "http-request-logger.png"
+            ]
+         },
          "src": {
             "Controller": {
                "0": "Launcher.php",
