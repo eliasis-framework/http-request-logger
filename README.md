@@ -107,7 +107,7 @@ Run all previous tests:
 
 ## ☑ TODO
 
-- [x] Run PHPUnit on Travis CI.
+- [ ] Run PHPUnit on Travis CI.
 - [ ] Add getter methods.
 - [ ] Add new feature.
 - [ ] Improve tests.

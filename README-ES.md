@@ -107,7 +107,7 @@ Ejecutar todas las pruebas anteriores:
 
 ## ☑ Tareas pendientes
 
-- [x] Hacer funcionar PHPUnit en Travis CI.
+- [ ] Hacer funcionar PHPUnit en Travis CI.
 - [ ] Agregar métodos de obtención (getter).
 - [ ] Añadir nueva funcionalidad.
 - [ ] Mejorar pruebas.
