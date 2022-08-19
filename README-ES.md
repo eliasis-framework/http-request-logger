@@ -1,6 +1,7 @@
 # HTTP Request Logger · Eliasis PHP Framework plugin
 
-[![Packagist](https://img.shields.io/packagist/v/eliasis-framework/http-request-logger.svg)](https://packagist.org/packages/eliasis-framework/http-request-logger) [![Downloads](https://img.shields.io/packagist/dt/eliasis-framework/http-request-logger.svg)](https://github.com/eliasis-framework/http-request-logger) [![License](https://img.shields.io/packagist/l/eliasis-framework/http-request-logger.svg)](https://github.com/eliasis-framework/http-request-logger/blob/master/LICENSE) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/604b93f429f5419ca30c57bfe646d0df)](https://www.codacy.com/app/Josantonius/http-request-logger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=eliasis-framework/http-request-logger&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/eliasis-framework/http-request-logger.svg?branch=master)](https://travis-ci.org/eliasis-framework/http-request-logger) [![PSR2](https://img.shields.io/badge/PSR-2-1abc9c.svg)](http://www.php-fig.org/psr/psr-2/) [![PSR4](https://img.shields.io/badge/PSR-4-9b59b6.svg)](http://www.php-fig.org/psr/psr-4/) [![codecov](https://codecov.io/gh/eliasis-framework/http-request-logger/branch/master/graph/badge.svg)](https://codecov.io/gh/eliasis-framework/http-request-logger)
+[![Packagist](https://img.shields.io/packagist/v/eliasis-framework/http-request-logger.svg)](https://packagist.org/packages/eliasis-framework/http-request-logger)
+[![License](https://img.shields.io/packagist/l/eliasis-framework/http-request-logger.svg)](https://github.com/eliasis-framework/http-request-logger/blob/master/LICENSE)
 
 [English version](README.md)
 
@@ -12,10 +13,8 @@ Guarda información sobre peticiones HTTP en la base de datos.
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Tests](#tests)
-- [Tareas pendientes](#-tareas-pendientes)
-- [Contribuir](#contribuir)
-- [Licencia](#licencia)
-- [Copyright](#copyright)
+- [Sponsor](#Sponsor)
+- [License](#license)
 
 ---
 
@@ -23,21 +22,21 @@ Guarda información sobre peticiones HTTP en la base de datos.
 
 Este plugin es soportado por versiones de **PHP 5.6** o superiores y es compatible con versiones de **HHVM 3.0** o superiores.
 
-## Instalación 
+## Instalación
 
 La mejor forma de instalar este plugin es a través de [Composer](http://getcomposer.org/download/).
 
 Para instalar **HTTP Request Logger**, simplemente escribe:
 
-    $ composer require eliasis-framework/http-request-logger
+    composer require eliasis-framework/http-request-logger
 
 El comando anterior sólo instalará los archivos necesarios, si prefieres **descargar todo el código fuente** puedes utilizar:
 
-    $ composer require eliasis-framework/http-request-logger --prefer-source
+    composer require eliasis-framework/http-request-logger --prefer-source
 
 También puedes **clonar el repositorio** completo con Git:
 
-    $ git clone https://github.com/eliasis-framework/http-request-logger.git
+    git clone https://github.com/eliasis-framework/http-request-logger.git
 
 ## Uso
 
@@ -73,74 +72,45 @@ La estructura de la tabla creada es la siguiente:
 | request_uri | TEXT | /sample-app/ |
 | request_protocol | VARCHAR(100) | HTTP/1.1 |
 | request_method | VARCHAR(15) | GET |
-| request_referer | VARCHAR(255) | http://www.google.es/ |
+| request_referer | VARCHAR(255) | <http://www.google.es/> |
 | request_user_agent | VARCHAR(255) | Mozilla/5.0 (...) |
 | request_http_state | INT(3) | 200 |
 | request_load_time | FLOAT | 0.008 |
 | created | TIMESTAMP | 2018-02-28 08:26:43 |
 
-## Tests 
+## Tests
 
 Para ejecutar las [pruebas](tests) necesitarás [Composer](http://getcomposer.org/download/) y seguir los siguientes pasos:
 
-    $ git clone https://github.com/eliasis-framework/http-request-logger.git
+    git clone https://github.com/eliasis-framework/http-request-logger.git
     
-    $ cd http-request-logger
+    cd http-request-logger
 
-    $ composer install
+    composer install
 
 Ejecutar pruebas unitarias con [PHPUnit](https://phpunit.de/):
 
-    $ composer phpunit
+    composer phpunit
 
 Ejecutar pruebas de estándares de código [PSR2](http://www.php-fig.org/psr/psr-2/) con [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer):
 
-    $ composer phpcs
+    composer phpcs
 
 Ejecutar pruebas con [PHP Mess Detector](https://phpmd.org/) para detectar inconsistencias en el estilo de codificación:
 
-    $ composer phpmd
+    composer phpmd
 
 Ejecutar todas las pruebas anteriores:
 
-    $ composer tests
+    composer tests
 
-## ☑ Tareas pendientes
+## Sponsor
 
-- [ ] Hacer funcionar PHPUnit en Travis CI.
-- [ ] Agregar métodos de obtención (getter).
-- [ ] Añadir nueva funcionalidad.
-- [ ] Mejorar pruebas.
-- [ ] Mejorar documentación.
-- [ ] Refactorizar código para las reglas de estilo de código deshabilitadas. Ver [phpmd.xml](phpmd.xml) y [.php_cs.dist](.php_cs.dist).
+If this project helps you to reduce your development time,
+[you can sponsor me](https://github.com/josantonius#sponsor) to support my open source work :blush:
 
-## Contribuir
+## License
 
-Si deseas colaborar, puedes echar un vistazo a la lista de
-[issues](https://github.com/eliasis-framework/http-request-logger/issues) o [tareas pendientes](#-tareas-pendientes).
+This repository is licensed under the [MIT License](LICENSE).
 
-**Pull requests**
-
-* [Fork and clone](https://help.github.com/articles/fork-a-repo).
-* Ejecuta el comando `composer install` para instalar dependencias.
-  Esto también instalará las [dependencias de desarrollo](https://getcomposer.org/doc/03-cli.md#install).
-* Ejecuta el comando `composer fix` para estandarizar el código.
-* Ejecuta las [pruebas](#tests).
-* Crea una nueva rama (**branch**), **commit**, **push** y envíame un
-  [pull request](https://help.github.com/articles/using-pull-requests).
-
-## Repositorio
-
-La estructura de archivos de este repositorio se creó con [PHP-Skeleton](https://github.com/Josantonius/PHP-Skeleton).
-
-## Licencia
-
-Este proyecto está licenciado bajo **licencia MIT**. Consulta el archivo [LICENSE](LICENSE) para más información.
-
-## Copyright
-
-2016 - 2018 Josantonius, [josantonius.com](https://josantonius.com/)
-
-Si te ha resultado útil, házmelo saber :wink:
-
-Puedes contactarme en [Twitter](https://twitter.com/Josantonius) o a través de mi [correo electrónico](mailto:hello@josantonius.com).
+Copyright © 2017-2022, [Josantonius](https://github.com/josantonius#contact)
